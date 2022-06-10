@@ -1,6 +1,5 @@
-* {
+*{
     box-sizing: border-box;
-
 }
 
 body {
@@ -27,23 +26,20 @@ header {
 }
 
 main {
-    margin: 123px 0 100px 14px;
+    margin: 123px 0 80px 14px;
 }
 
 ul {
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-
 }
 
 li {
     width: 172px;
     height: 216px;
     margin: 17px 16px 27px 0;
-    margin-top: 17px;
-    margin-right: 16px;
-    padding: 13px 9px 8px 9px;
+    padding: 12px 9px 8px 9px;
     position: relative;
 
     background: #FFFFFF;
@@ -59,10 +55,10 @@ li img {
 
 ul li .Icon-check {
     position: absolute;
-    width: 22px;
-    height: 22px;
-    right: 15px;
-    bottom: 15px;
+    width: 20px;
+    height: 20px;
+    right: 10px;
+    bottom: 10px;
     color: #32B72F;
 }
 
@@ -167,7 +163,8 @@ footer {
 .Hidden {
     display: none;
 }
-.Border-check{
+
+.Selected {
     border: 6px solid #32B72F;
     border-radius: 9px;
 }
