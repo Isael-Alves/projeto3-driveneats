@@ -10,6 +10,7 @@ function SelectFood(Card) {
 
     Card.classList.add("Selected");
     Check.classList.remove("Hidden");
+    EnableButton();
 }
 
 function SelectDrink(Card) {
@@ -24,6 +25,7 @@ function SelectDrink(Card) {
 
     Card.classList.add("Selected");
     Check.classList.remove("Hidden");
+    EnableButton();
 }
 
 function SelectDessert(Card) {
@@ -38,4 +40,13 @@ function SelectDessert(Card) {
 
     Card.classList.add("Selected");
     Check.classList.remove("Hidden");
+    EnableButton();
+}
+
+function EnableButton(){
+const counter = document.querySelectorAll(".Selected").length
+    if (counter === 3){
+        document.querySelector(".Button").classList.add("Hidden")
+        document.querySelector(".Button-confirm-order").classList.remove("Hidden");
+    }
 }
