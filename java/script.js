@@ -1,3 +1,5 @@
+let UserName;
+let Address;
 let Food;
 let Drink;
 let Dessert;
@@ -83,12 +85,42 @@ function String_for_number(Card) {
 }
 
 function CompleteBuy() {
-    TotalCost = ((FoodCost + DrinkCost + DessertCost)/100).toFixed(2);
+    TotalCost = ((FoodCost + DrinkCost + DessertCost) / 100).toFixed(2);
+    document.querySelector(".ConfirmRequest .food").children[0].innerHTML = Food;
+    document.querySelector(".ConfirmRequest .food").children[1].innerHTML = `R$ ${((FoodCost / 100).toFixed(2)).replace(".", ",")}`;
+
+    document.querySelector(".ConfirmRequest .drink").children[0].innerHTML = Drink;
+    document.querySelector(".ConfirmRequest .drink").children[1].innerHTML = `R$ ${((DrinkCost / 100).toFixed(2)).replace(".", ",")}`;
+
+    document.querySelector(".ConfirmRequest .dessert").children[0].innerHTML = Dessert;
+    document.querySelector(".ConfirmRequest .dessert").children[1].innerHTML = `R$ ${((DessertCost / 100).toFixed(2)).replace(".", ",")}`;
+
+    document.querySelector(".ConfirmRequest .total").children[1].innerHTML = `R$ ${TotalCost.replace(".", ",")}`;
+
+    document.querySelector(".ConfirmRequest").classList.remove("Hidden");
+    document.querySelector(".Container").classList.add("Opacity");
+}
+
+function SendRequest() {
+    UserName = prompt("Qual é seu nome?");
+    Address = prompt("Qual é o endereço para entrega?");
+    
     const FinishMsg =
         `Olá, gostaria de fazer o pedido:\n  
       - Prato: ${Food}\n
       - Bebida: ${Drink}\n
       - Sobremesa: ${Dessert}\n
-        Total: R$ ${TotalCost.replace(".",",")}\n`
-    alert(FinishMsg);
+        Total: R$ ${TotalCost.replace(".", ",")}\n
+        
+        Nome: ${UserName}\n
+        Endereço: ${Address}\n
+        `;
+
+        const urlWhatsapp = `https://wa.me/5594999999999?text=${encodeURIComponent(FinishMsg)}`;
+        window.open(urlWhatsapp);
+}
+
+function Cancel() {
+    document.querySelector(".ConfirmRequest").classList.add("Hidden");
+    document.querySelector(".Container").classList.remove("Opacity");
 }
